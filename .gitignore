@@ -1,16 +1,25 @@
-__pycache__/
-*.pyc
-
+# Data / experiment artifacts
 data/
-checkpoints/
-runs/
-logs/
 outputs/
+checkpoints/
+logs/
 
-*.pt
-*.pth
-*.ckpt
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
 
-.ipynb_checkpoints/
+# Environments
+.venv/
+venv/
+env/
 
+# Slurm / logs
+*.out
+*.err
+
+# OS / editor
 .DS_Store
+.vscode/
+.idea/

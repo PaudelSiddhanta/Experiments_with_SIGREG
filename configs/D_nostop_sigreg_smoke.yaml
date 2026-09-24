@@ -1,0 +1,38 @@
+experiment:
+  name: D_nostop_sigreg_smoke
+  seed: 0
+  output_dir: /scratch/sp7007/byol_sigreg/outputs
+data:
+  dataset: cifar10
+  root: /scratch/sp7007/byol_sigreg/data
+  image_size: 32
+  num_workers: 8
+model:
+  backbone: resnet18
+  cifar_stem: true
+byol:
+  projection_size: 256
+  projection_hidden_size: 4096
+  moving_average_decay: 0.99
+train:
+  epochs: 1
+  batch_size: 256
+  lr: 0.0003
+  checkpoint_every: 1
+  log_every: 20
+  max_batches: 20
+linear_probe:
+  epochs: 2
+  batch_size: 256
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0
+method:
+  use_ema: false
+  stop_gradient: false
+  use_predictor: true
+  use_sigreg: true
+sigreg:
+  weight: 0.02
+  num_slices: 256
+  knots: 17

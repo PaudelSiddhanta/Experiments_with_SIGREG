@@ -1,0 +1,38 @@
+experiment:
+  name: B_byol_sigreg
+  seed: 0
+  output_dir: /scratch/sp7007/byol_sigreg/outputs
+data:
+  dataset: cifar10
+  root: /scratch/sp7007/byol_sigreg/data
+  image_size: 32
+  num_workers: 8
+model:
+  backbone: resnet18
+  cifar_stem: true
+byol:
+  projection_size: 256
+  projection_hidden_size: 4096
+  moving_average_decay: 0.99
+train:
+  epochs: 100
+  batch_size: 256
+  lr: 0.0003
+  checkpoint_every: 10
+  log_every: 20
+  max_batches: null
+linear_probe:
+  epochs: 50
+  batch_size: 256
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0
+method:
+  use_ema: true
+  stop_gradient: true
+  use_predictor: true
+  use_sigreg: true
+sigreg:
+  weight: 0.02
+  num_slices: 256
+  knots: 17
