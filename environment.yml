@@ -1,0 +1,6 @@
+name: byol_sigreg
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+prefix: /scratch/sp7007/conda-envs/byol_sigreg
