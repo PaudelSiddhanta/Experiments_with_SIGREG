@@ -56,7 +56,7 @@ def get_test_loader(normalize=True):
 @torch.no_grad()
 def collect_single_view_representations(
     model,
-    metric_loader,
+    loader,
     device,
 ):
     encoder_features = []
@@ -113,7 +113,7 @@ def collect_single_view_representations(
 @torch.no_grad()
 def collect_alignment_representations(
     model,
-    alignment_loader,
+    loader,
     device,
 ):
     """
